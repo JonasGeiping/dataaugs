@@ -1,4 +1,4 @@
-# Code to run the experiments for "How Much Data is Augmentation Worth?"
+# Code to run the experiments for "How Much Data Are Augmentations Worth? An Investigation into Scaling Laws, Invariance, and Implicit Regularization"
 
 ## Requirements
 * PyTorch 1.10.*
