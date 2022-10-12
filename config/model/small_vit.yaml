@@ -1,0 +1,8 @@
+name: vit
+patch_size: 4
+head_dim: 512
+depth: 6
+heads: 8
+mlp_dim: 512
+dropout: 0.1
+emb_dropout: 0.1

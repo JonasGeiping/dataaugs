@@ -1,0 +1,12 @@
+# Baseline hyperparameters
+template_name: baseline
+
+defaults:
+  - _default_hyperparams
+
+# Specialization vs default:
+train_stochastic: True
+shuffle: True
+steps: 60000
+optim:
+  lr: 0.1

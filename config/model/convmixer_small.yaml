@@ -1,0 +1,5 @@
+
+name: ConvMixer
+depth: 8
+dim: 128
+kernel_size: 7

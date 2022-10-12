@@ -1,0 +1,27 @@
+# PyTorch configuration
+dtype: float # this has to be float when mixed_precision is True
+memory: contiguous # channels-last is only really beneficial if mixed_precision is also True, but even then really machine-specific??
+non_blocking: True
+
+benchmark: True  # CUDNN benchmarking
+deterministic: False # This option will disable non-deterministic ops
+
+pin_memory: True
+threads: 16  # maximal number of cpu dataloader workers used per GPU
+persistent_workers: True # this clashes with pin_memory in pytorch 1.7.1 -> set this to true later
+
+JIT:  # script currently break autocast mixed precision and trace breaks training
+
+accumulation_dtype: float # dtype used for accumulated gradients [but not for optim steps, this would require that the optim keeps a high-prec copy]
+
+
+validate_every_nth_step: 10000
+print_every_nth_step: 1000
+
+checkpoint:
+  name:
+  save_every_nth_step: 5000
+
+# Node Setup
+defaults:
+  - setup: single

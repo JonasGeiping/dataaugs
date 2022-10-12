@@ -1,0 +1,27 @@
+# A3 Recipe from ResNets strikes back, slightly altered to use AdamW instead of LAMB
+# Use with lr=2048
+template_name: baseline
+
+defaults:
+  - _default_hyperparams
+  - override optim: adam
+
+# Specialization vs default:
+train_stochastic: True
+shuffle: True
+steps: 1_000_000
+sub_batch: 256 # data points used during a single forward-pass if sub_batch=1 then all examples are processed separately
+
+
+scheduler: cosine-decay
+warmup: 50000
+only_linear_layers_weight_decay: False
+optim:
+  weight_decay: 0.02
+  lr: 8e-3
+grad_clip: 1.0
+
+
+# Other adaptations:
+# Train with an image size of 160x160
+# use a batch size of 512 per GPU

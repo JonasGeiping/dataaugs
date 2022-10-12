@@ -1,0 +1,41 @@
+
+name: ImageNet
+path: "~/data/imagenet"
+size: 1_281_167
+channels: 3
+pixels: 224
+classes: 1000
+
+deterministic_subsets: False
+
+
+normalize: True
+mean:
+  - 0.485
+  - 0.456
+  - 0.406
+std:
+  - 0.229
+  - 0.224
+  - 0.225
+
+# Data-specific implementation constants:
+batch_size: 512 # this is the maximum batchsize that fits onto the GPU for gradient accumulation?
+
+augmentations_train:
+  # Resize: 256
+  # CenterCrop: 160 # This is A3 from "ResNets strike back" but non-randomized
+
+augmentations_val:
+  Resize: 256
+  CenterCrop: 224
+
+caching: False
+# Database Setup # use the cmd-line to activate the LMDB module with data.db=LMDB
+defaults:
+  - db: none
+
+#
+extra_validation: []
+  # - ImageNet-C
+  # - ImageNet-R

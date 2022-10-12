@@ -1,0 +1,29 @@
+
+type:
+check_every_nth_step: 1_000_000_000_000
+
+## basic stats ("almost for free")
+measure_param_norm: False
+measure_grad_norm: False
+check_momentum: False
+
+## SNR computations (require reanalyzing the last epoch)
+compute_gradient_SNR: False
+compute_gradient_noise_scale: False
+record_gradient_norm_per_batch: False
+
+## Flatness metrics based on empirical distance-based flatness in random directions
+compute_flatness: False  # # Can take some time to compute, best to only activate this at the end of training
+flatness_step_size: 0.1
+flatness_threshold: 1.0
+flatness_norm: filter
+
+## Cosine similarity between gradient pairs
+measure_cosinesim_imlevel: False
+measure_cosinesim_batchlevel: False
+cossim_numpairs: 1000
+
+## How to measure:
+analyze_augmented_dataset: False
+normalize_in_SNR_computations: False
+internal_batch_size_chunks: 1 # the batches from data.batch_size are chunked into this many pieces, set equal to batch_size for per-example-gradients

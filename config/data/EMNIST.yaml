@@ -1,0 +1,36 @@
+
+name: EMNIST
+path: "~/data"
+split: letters
+size: 124_800
+channels: 3
+classes: 27
+pixels: 28
+
+deterministic_subsets: False
+
+normalize: True
+mean:
+  - 0.5
+std:
+  - 0.5
+
+# Data-specific implementation constants:
+batch_size: 128 # this is the maximum batchsize that fits onto the GPU for gradient accumulation
+
+augmentations_train:
+  ToRGB:
+  # RandomCrop:
+  #   - 32
+  #   - 4
+  # RandomHorizontalFlip: 0.5
+augmentations_val:
+  ToRGB:
+
+caching: # dataset is alreay cached in RAM
+# Database Setup # use the cmd-line to activate the LMDB module with data.db=LMDB
+
+defaults:
+  - db: none
+
+extra_validation: []

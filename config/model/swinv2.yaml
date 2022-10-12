@@ -1,0 +1,11 @@
+name: swinv2
+
+# modified for CIFAR10 based on results at https://juliusruseckas.github.io/ml/swin-cifar10.html
+patch_size: 2
+embed_dim: 128
+depths: [4, 4]
+num_heads: [4, 4]
+window_size: 4
+mlp_ratio: 4.0
+
+drop_path_rate: 0.0

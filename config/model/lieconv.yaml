@@ -1,0 +1,14 @@
+
+name: lieconv
+
+k: [64,64,128,128,256,256,512,512,512]  # channel width for the network. Can be int (same for all) or array to specify individually.
+total_ds: 0.03125  # ds_frac = (total_ds)**(1/num_layers), ds_frac: total downsampling to perform throughout the layers of the net.
+fill: 0.03125  # specifies the fraction of the input which is included in local neighborhood.
+nbhd: 25  # number of samples to use for Monte Carlo estimation (p)
+
+num_layers: 8
+# LieConv defaults:
+# total_ds: 1/64
+# fill:1/32
+# nbhd: 12
+# k: 256

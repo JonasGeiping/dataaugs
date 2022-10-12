@@ -1,0 +1,4 @@
+
+name: e2cnn-base-v2
+depth: 22
+width_modifier: 4
